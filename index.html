@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, height=device-height, viewport-fit=cover">
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Hero AI - Your personal AI assistant">
+    <meta name="theme-color" content="#2e3033">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Hero AI">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="img/logo.png">
+    <link rel="shortcut icon" sizes="70%" href="img/logo.png"/>
+    <!-- Splash screen images for iOS -->
+    <link rel="apple-touch-startup-image" href="img/logo.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="img/logo.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="img/logo.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="img/logo.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)">
+    <link rel="apple-touch-startup-image" href="img/logo.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="img/logo.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-device-pixel-ratio: 2)">
+    <link rel="apple-touch-startup-image" href="img/logo.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-device-pixel-ratio: 2)">
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/colour.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/pwa.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Add touch feedback library -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ripple-button@1.0.5/ripple-button.min.css">
+    <!-- Add animations library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <title>Hero AI</title>
+</head>
+<body class="dark-theme"s>
+    <!-- Fullscreen Settings Page -->
+    <div id="settings-page" class="settings-page">
+        <div class="settings-header">
+            <button id="close-settings" class="close-btn"><i class="fas fa-arrow-left"></i></button>
+            <h2>Settings</h2>
+        </div>
+        
+        <div class="settings-content">
+            <div class="settings-section">
+                <h3>Appearance</h3>
+                <div class="setting-item">
+                    <span>Theme</span>
+                    <div class="theme-selector">
+                        <button id="light-theme" class="theme-btn"><i class="fas fa-sun"></i> Light</button>
+                        <button id="dark-theme" class="theme-btn"><i class="fas fa-moon"></i> Dark</button>
+                        <button id="system-theme" class="theme-btn active"><i class="fas fa-desktop"></i> System</button>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <span>Font Size</span>
+                    <div class="font-size-slider">
+                        <input type="range" id="font-size" min="12" max="20" value="15">
+                        <span id="font-size-value">15px</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Chat</h3>
+                <div class="setting-item">
+                    <span>Send messages with</span>
+                    <div class="setting-toggle">
+                        <select id="send-mode">
+                            <option value="enter">Enter key</option>
+                            <option value="ctrlenter">Ctrl + Enter</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="setting-item row">
+                    <span>Voice input</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="voice-toggle" checked>
+                        <label for="voice-toggle"></label>
+                    </div>
+                </div>
+                <div class="setting-item row">
+                    <span>Save chat history</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="history-toggle" checked>
+                        <label for="history-toggle"></label>
+                    </div>
+                </div>
+                <div class="setting-item">
+                    <span>Fullscreen mode</span>
+                    <button id="fullscreen-toggle" class="action-btn"><i class="fas fa-expand"></i> Toggle Fullscreen</button>
+                </div>
+            </div>
+            
+            <!-- New Language Settings Section -->
+            <div class="settings-section">
+                <h3>Language</h3>
+                <div class="setting-item">
+                    <span>AI Response Language</span>
+                    <div class="setting-toggle">
+                        <select id="language-select">
+                            <option value="english">English</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="hinglish">Hinglish</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="setting-item language-info">
+                    <p class="language-note"><i class="fas fa-info-circle"></i> The AI will respond in your selected language</p>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>Notifications</h3>
+                <div class="setting-item row">
+                    <span>Sound effects</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="sound-toggle" checked>
+                        <label for="sound-toggle"></label>
+                    </div>
+                </div>
+                <div class="setting-item row">
+                    <span>Desktop notifications</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="notification-toggle">
+                        <label for="notification-toggle"></label>
+                    </div>
+                </div>
+            </div>
+            
+           
+            <!-- New Speech Settings Section -->
+            <div class="settings-section">
+                <h3>Speech</h3>
+                <div class="setting-item row">
+                    <span>Auto-read AI responses</span>
+                    <div class="toggle-switch">
+                        <input type="checkbox" id="auto-speak-toggle">
+                        <label for="auto-speak-toggle"></label>
+                    </div>
+                </div>
+                
+                <div class="setting-item">
+                    <span>Voice</span>
+                    <div id="voice-selector" class="voice-selector">
+                        <!-- Voice options will be populated dynamically -->
+                        <div class="loading-voices">Loading available voices...</div>
+                    </div>
+                </div>
+                
+                <div class="voice-controls">
+                    <div class="voice-control-item">
+                        <label for="speech-rate">Speech Rate</label>
+                        <div class="slider-with-value">
+                            <input type="range" id="speech-rate" min="0.5" max="2" step="0.1" value="1">
+                            <span id="speech-rate-value">1.0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-control-item">
+                        <label for="speech-pitch">Pitch</label>
+                        <div class="slider-with-value">
+                            <input type="range" id="speech-pitch" min="0.5" max="2" step="0.1" value="1">
+                            <span id="speech-pitch-value">1.0</span>
+                        </div>
+                    </div>
+                    
+                    <div class="voice-control-item">
+                        <button id="test-voice" class="action-btn"><i class="fas fa-play"></i> Test Voice</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="settings-section">
+                <h3>Data & Privacy</h3>
+                <div class="setting-item">
+                    <span>Clear all data</span>
+                    <button id="clear-data" class="action-btn danger-btn"><i class="fas fa-trash"></i> Clear Data</button>
+                </div>
+                <div class="setting-item">
+                    <span>Export all chats</span>
+                    <button id="export-all" class="action-btn"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+            
+            <div class="settings-section">
+                <h3>About</h3>
+                <div class="setting-item about-info">
+                    <p>Hero AI Assistant</p>
+                    <p>Version 1.0.2</p>
+                    <p class="copyright">© 2025 All Rights Reserved by Atul Kumar</p>
+                   
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">Chat History</div>
+                <button id="mobile-close-sidebar" class="mobile-only"><i class="fas fa-times"></i></button>
+            </div>
+            
+            
+            
+            <div class="tab-content">
+                <!-- Chats Tab -->
+                <div id="chats-tab" class="tab-pane active">
+                    <div class="search-container">
+                        <input type="text" id="search-chats" placeholder="Search conversations...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div class="chat-history" id="chat-history">
+                        <div class="chat-time"><p>Today</p></div>
+                        <!-- Chat history items will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+            <button id="new-chat-btn" class="new-chat-btn"><i class="fas fa-plus"></i> New Chat</button>
+        </div>
+        
+        <!-- Main Chat Area -->
+        <div class="main-content">
+            <div class="mobile-header">
+                <button id="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+                <div class="mobile-title">Hero AI</div>
+                <button id="mobile-options-btn"><i class="fas fa-ellipsis-v"></i></button>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="user-info">
+                        <div class="avatar">AI</div>
+                        <div class="name">Hero Assistant</div>
+                    </div>
+                    <div class="options">
+                        <button id="settings-btn" title="Settings"><i class="fas fa-cog"></i></button>
+                        <button id="export-chat" title="Export Chat"><i class="fas fa-download"></i></button>
+                        <button id="clear-chat" title="Clear Chat"><i class="fas fa-trash"></i></button>
+                        <button id="theme-toggle" title="Toggle Theme"><i class="fas fa-moon"></i></button>
+                    </div>
+                </div>
+                
+                <div class="chat-messages" id="chat-messages">
+                   
+                </div>
+                
+                <div class="chat-input-container">
+                    <textarea id="user-input" placeholder="Type your message here..." rows="1"></textarea>
+                    <div class="input-buttons">
+                        <button id="model-select-btn" title="Select Model"><i class="fas fa-robot"></i></button>
+                        <div class="spacer"></div>
+                        <button id="attach-btn" title="Attach File"><i class="fas fa-paperclip"></i></button>
+                        <button id="mic-btn" title="Voice Input"><i class="fas fa-microphone"></i></button>
+                        <button id="send-btn" title="Send Message"><i class="fas fa-arrow-up"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/ripple-button@1.0.5/ripple-button.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/plugin/relativeTime.js"></script>
+
+    <!-- App scripts -->
+    <script src="js/ai.js"></script>
+    <script src="js/test-groq.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/pwa.js"></script>
+    <script src="js/tts.js"></script>
+    <script src="js/tts-ui.js"></script>
+</body>
+</html>

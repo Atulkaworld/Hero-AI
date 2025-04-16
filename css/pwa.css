@@ -1,0 +1,259 @@
+/* PWA Installation Styles */
+
+/* General Installation Button */
+.install-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--primary-color, #4285f4);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.install-button:hover {
+  background-color: var(--primary-color-dark, #3367d6);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Mobile Installation Popup */
+.install-popup {
+  position: fixed;
+  bottom: 10px;
+  left: 2%;
+  width: 96%;
+  transform: translateY(100%);
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.install-popup.show {
+  transform: translateY(0);
+}
+
+.install-popup-content {
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.install-popup-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.install-popup-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color, #333);
+}
+
+.install-popup-close {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.install-popup-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.install-popup-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.install-popup-icon img {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.install-popup-text p {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color, #333);
+}
+
+.install-popup-text ul {
+  margin: 0;
+  padding: 0 0 0 20px;
+  list-style-type: none;
+}
+
+.install-popup-text ul li {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--text-secondary, #666);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.install-popup-text ul li i {
+  color: var(--primary-color, #4285f4);
+}
+
+.install-popup-button {
+  background-color: var(--primary-color, #4285f4);
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.install-popup-button:hover {
+  background-color: var(--primary-color-dark, #3367d6);
+}
+
+/* iOS Installation Guide */
+.ios-install-popup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(100%);
+  z-index: 1001;
+  transition: transform 0.3s ease;
+}
+
+.ios-install-popup.show {
+  transform: translateY(0);
+}
+
+.ios-install-popup-content {
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.ios-install-popup-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ios-install-popup-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color, #333);
+}
+
+.ios-install-popup-close {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.ios-install-popup-body {
+  padding: 20px;
+}
+
+.ios-install-popup-body p {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-color, #333);
+}
+
+.ios-install-popup-body ol {
+  margin: 0 0 20px 0;
+  padding: 0 0 0 20px;
+}
+
+.ios-install-popup-body ol li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  color: var(--text-secondary, #666);
+}
+
+.ios-install-popup-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.ios-install-popup-image img {
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme styles */
+body.dark-theme .install-button {
+  background-color: var(--accent-color, #bb86fc);
+}
+
+body.dark-theme .install-button:hover {
+  background-color: var(--accent-color-dark, #a45efc);
+}
+
+body.dark-theme .install-popup-content,
+body.dark-theme .ios-install-popup-content {
+  background-color: var(--bg-color-secondary, #2d2d2d);
+}
+
+body.dark-theme .install-popup-header,
+body.dark-theme .ios-install-popup-header {
+  border-bottom: 1px solid var(--border-color, #444);
+}
+
+body.dark-theme .install-popup-header h3,
+body.dark-theme .ios-install-popup-header h3 {
+  color: var(--text-color, #eee);
+}
+
+body.dark-theme .install-popup-text p,
+body.dark-theme .ios-install-popup-body p {
+  color: var(--text-color, #eee);
+}
+
+body.dark-theme .install-popup-text ul li,
+body.dark-theme .ios-install-popup-body ol li {
+  color: var(--text-secondary, #bbb);
+}
+
+body.dark-theme .install-popup-button {
+  background-color: var(--accent-color, #bb86fc);
+}
+
+body.dark-theme .install-popup-button:hover {
+  background-color: var(--accent-color-dark, #a45efc);
+} 
